@@ -1,0 +1,18 @@
+name: dart_supabase_extension
+
+repository: https://github.com/heyhey1028/dart_supabase_extension
+
+packages:
+  - ./**
+
+scripts:
+  clean:
+    run: melos exec -- "flutter clean"
+
+  pub:get:
+    run: melos exec -- "flutter pub get"
+
+  clean:pub:get:
+    run: melos exec -- "flutter clean && flutter pub get"
+
+  analyze: melos exec -- dart analyze .

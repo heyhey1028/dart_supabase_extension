@@ -1,0 +1,6 @@
+name: dart_supabase_extension
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+dev_dependencies:
+  melos: ^3.4.0

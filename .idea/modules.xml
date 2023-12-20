@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/supabase_extension_function/melos_supabase_edge_functions_example.iml" filepath="$PROJECT_DIR$/supabase_extension_function/melos_supabase_edge_functions_example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/supase_extension_form/melos_supase_extension_form.iml" filepath="$PROJECT_DIR$/supase_extension_form/melos_supase_extension_form.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_dart_supabase_extension.iml" filepath="$PROJECT_DIR$/melos_dart_supabase_extension.iml" />
+    </modules>
+  </component>
+</project>
