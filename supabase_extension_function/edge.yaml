@@ -1,0 +1,3 @@
+supabase:
+  functions:
+    validate_address: 'lib/validate_address.dart'
