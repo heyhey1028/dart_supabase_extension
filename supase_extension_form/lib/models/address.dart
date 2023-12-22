@@ -1,6 +1,7 @@
 import 'package:supase_extension_form/models/country.dart';
 
 class Address {
+  final int? id;
   final Country country;
   final String street;
   final String other;
@@ -9,6 +10,7 @@ class Address {
   final String zip;
 
   Address({
+    this.id,
     required this.country,
     required this.street,
     required this.other,
@@ -18,6 +20,7 @@ class Address {
   });
 
   static Address get mock => Address(
+        id: 0,
         country: Country.us,
         street: '123 Street',
         other: 'Other',
@@ -28,6 +31,7 @@ class Address {
 
   factory Address.fromJson(Map<String, dynamic> json) {
     return Address(
+      id: json['id'],
       country: Country.values.firstWhere(
         (country) => country.code == json['country_code'],
       ),
@@ -40,6 +44,7 @@ class Address {
   }
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'country_code': country.code,
         'street': street,
         'other': other,
