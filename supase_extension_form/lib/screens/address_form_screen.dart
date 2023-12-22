@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supase_extension_form/extension/snack_bar.dart';
+import 'package:supase_extension_form/screens/address_list_screen.dart';
 import 'package:supase_extension_form/widgets/app_dropdown_field.dart';
 import 'package:supase_extension_form/widgets/app_text_field.dart';
 import 'package:gap/gap.dart';
@@ -66,7 +69,17 @@ class _AddressFormScreenState extends State<AddressFormScreen> {
             style: ElevatedButton.styleFrom(
               shape: const StadiumBorder(),
             ),
-            onPressed: () {},
+            onPressed: () async {
+              await _registerAddress(
+                context,
+                countryController.text,
+                streetController.text,
+                otherController.text,
+                cityController.text,
+                stateController.text,
+                zipController.text,
+              );
+            },
             child: const Text(
               'Register address',
             ),
@@ -74,5 +87,37 @@ class _AddressFormScreenState extends State<AddressFormScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _registerAddress(
+    BuildContext context,
+    String country,
+    String street,
+    String other,
+    String city,
+    String state,
+    String zip,
+  ) async {
+    try {
+      await Supabase.instance.client.from('addresses').insert({
+        'country_code': country,
+        'street': street,
+        'other': other,
+        'city': city,
+        'state': state,
+        'zipcode': zip,
+      });
+      if (!context.mounted) return;
+      showSnackBar(context: context, message: 'Address registered successfully');
+      if (!mounted) return;
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const AddressListScreen(),
+        ),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      showErrorSnackBar(context: context, message: e.toString());
+    }
   }
 }

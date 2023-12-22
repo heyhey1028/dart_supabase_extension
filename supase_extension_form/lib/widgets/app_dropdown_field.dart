@@ -1,7 +1,7 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:supase_extension_form/enum/country.dart';
+import 'package:supase_extension_form/models/country.dart';
 
 var _countries = Country.values;
 
@@ -40,7 +40,7 @@ class _AppDropdownFieldState extends State<AppDropdownField> {
             },
             items: _countries.map((Country country) {
               return DropdownMenuItem<String>(
-                value: country.name,
+                value: country.code,
                 child: Row(mainAxisSize: MainAxisSize.min, children: [
                   SizedBox.square(
                     dimension: 30,
